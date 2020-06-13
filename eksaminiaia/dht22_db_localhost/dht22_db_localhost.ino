@@ -1,11 +1,9 @@
 #include <Ethernet2.h>
 #include <MySQL_Connection.h>
 #include <MySQL_Cursor.h>
-
 #include "DHT.h"
 
 #define DHTPIN 2     // what digital pin we're connected to
-
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
 unsigned long currentMillis, dbUpdateTime;
@@ -16,20 +14,12 @@ bool update1, updatedb = false;
 
 byte mac_addr[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 
-IPAddress server_addr(192, 168, 1, 100); // IP of the MySQL *server* here
+IPAddress server_addr(192, 168, 1, 103); // IP of the MySQL *server* here
 
-//IPAddress server_addr(104, 37, 86, 17); // IP of the MySQL *server* here
+char user[] = "arduino";              // MySQL user login username
+char password[] = "1234";        // MySQL user login password
 
-//char user[] = "fkltemqd";              // MySQL user login username
-//char password[] = "CG*h7hJ18Uuj]8";        // MySQL user login password
-
-//char user[] = "arduino";              // MySQL user login username
-//char password[] = "1234";        // MySQL user login password
-
-char user[] = "root";              // MySQL user login username
-char password[] = "raspi0196";        // MySQL user login password
 // Sample query
-//char INSERT_DATA[] = "INSERT INTO fkltemqd.dht11 (humidity, temperature) VALUES (%s,%s)";
 char INSERT_DATA[] = "INSERT INTO dht.dht11 (humidity, temperature) VALUES (%s,%s)";
 
 char query[128];
