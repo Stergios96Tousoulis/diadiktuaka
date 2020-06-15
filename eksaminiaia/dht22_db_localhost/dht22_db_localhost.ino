@@ -14,10 +14,10 @@ bool update1, updatedb = false;
 
 byte mac_addr[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 
-IPAddress server_addr(192, 168, 1, 103); // IP of the MySQL *server* here
+IPAddress server_addr(192, 168, 1, 100); // IP of the MySQL *server* here
 
 char user[] = "arduino";              // MySQL user login username
-char password[] = "1234";        // MySQL user login password
+char password[] = "raspi0196";        // MySQL user login password
 
 // Sample query
 char INSERT_DATA[] = "INSERT INTO dht.dht11 (humidity, temperature) VALUES (%s,%s)";
